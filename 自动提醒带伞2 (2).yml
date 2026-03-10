@@ -138,18 +138,6 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: start
-        targetType: http-request
-      id: 1773162967146-source-1773079486210-target
-      selected: false
-      source: '1773162967146'
-      sourceHandle: source
-      target: '1773079486210'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: if-else
         targetType: tool
       id: 1773162533349-true-1773082577767-target
@@ -169,6 +157,17 @@ workflow:
       source: '1773162533349'
       sourceHandle: 'false'
       target: '17731662054810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: http-request
+      id: 1773172110016-source-1773079486210-target
+      source: '1773172110016'
+      sourceHandle: source
+      target: '1773079486210'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -406,19 +405,38 @@ workflow:
       type: custom
       width: 241
     - data:
-        selected: false
-        title: 用户输入
-        type: start
-        variables: []
-      height: 72
-      id: '1773162967146'
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: daily
+        mode: visual
+        selected: true
+        timezone: America/New_York
+        title: 定时触发器
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 12:07 AM
+          weekdays:
+          - sun
+      height: 129
+      id: '1773172110016'
       position:
         x: 0
         y: 52
       positionAbsolute:
         x: 0
         y: 52
-      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -621,7 +639,7 @@ workflow:
         provider_id: langgenius/outlook/outlook
         provider_name: langgenius/outlook/outlook
         provider_type: builtin
-        selected: true
+        selected: false
         title: 发送消息 (1)
         tool_configurations: {}
         tool_description: 通过Outlook使用Microsoft Graph API发送消息
@@ -649,13 +667,13 @@ workflow:
       positionAbsolute:
         x: 2408
         y: 205
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     viewport:
-      x: -1960.2521292794409
-      y: 255.1977612366494
-      zoom: 1.0000000000000018
+      x: 139.9885970948792
+      y: 306.81881075777363
+      zoom: 0.3789291416276001
   rag_pipeline_variables: []
