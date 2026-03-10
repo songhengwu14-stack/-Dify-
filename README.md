@@ -7,6 +7,10 @@
 Not fully optimized yet. One run might trigger multiple LLM calls.
 尚未完全优化，单次运行可能消耗多次 LLM 调用。
 
+⚠️ 重要提醒：
+导入 DSL 文件后，请务必进入“发送消息”(Outlook) 节点，使用您自己的账号重新点击“授权”，否则工作流将无法发送邮件。
+ After importing the DSL file, you must open the "Send Message" (Outlook) node and re-authorize it using your own account, or the workflow will fail to send emails.
+
 Caiyun API: Requires Lat/Lon (City names won't work). See config below.
 彩云 API：需要经纬度坐标（不支持城市名），配置见下文。
 
