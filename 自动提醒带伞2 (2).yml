@@ -1,0 +1,661 @@
+app:
+  description: '1'
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 自动提醒带伞2
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.7.14@f0200773cd6025864b2215dfe4a353eaf23f9635e9b6098ae0d9f2cb41fc5df4
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.9@05ad2af7b3001f46adc21a0972fe11536dc256672c97e0c530869e17619c76ad
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/outlook:0.2.1@019f9ce2046476d60e7fe584b2787c9eb3ed2875084290aea67db8196bd27d58
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1773079486210-source-1773080851702-target
+      selected: false
+      source: '1773079486210'
+      sourceHandle: source
+      target: '1773080851702'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1773080851702-source-1773079981963-target
+      selected: false
+      source: '1773080851702'
+      sourceHandle: source
+      target: '1773079981963'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1773079981963-true-1773161786629-target
+      selected: false
+      source: '1773079981963'
+      sourceHandle: 'true'
+      target: '1773161786629'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1773161786629-source-1773161833949-target
+      selected: false
+      source: '1773161786629'
+      sourceHandle: source
+      target: '1773161833949'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1773161833949-source-1773162533349-target
+      selected: false
+      source: '1773161833949'
+      sourceHandle: source
+      target: '1773162533349'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1773162967146-source-1773079486210-target
+      selected: false
+      source: '1773162967146'
+      sourceHandle: source
+      target: '1773079486210'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1773162533349-true-1773082577767-target
+      selected: false
+      source: '1773162533349'
+      sourceHandle: 'true'
+      target: '1773082577767'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1773162533349-false-17731662054810-target
+      selected: false
+      source: '1773162533349'
+      sourceHandle: 'false'
+      target: '17731662054810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: https://api.caiyunapp.com/v2.5/{{TOKEN}}/{{LON_LAT}}/realtime.json
+        variables: []
+      height: 152
+      id: '1773079486210'
+      position:
+        x: 342
+        y: 4
+      positionAbsolute:
+        x: 342
+        y: 4
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: b41fb948-ebac-4a7c-999a-aaa785a139a2
+            value: RAIN
+            varType: string
+            variable_selector:
+            - '1773080851702'
+            - result
+          - comparison_operator: contains
+            id: b461a632-892f-4775-aa92-75479e0cf0c6
+            value: THUNDER_SHOWER
+            varType: string
+            variable_selector:
+            - '1773080851702'
+            - result
+          - comparison_operator: contains
+            id: d1f7e30d-e35a-41d8-aef3-00f91182c7a1
+            value: NIGHT
+            varType: string
+            variable_selector:
+            - '1773080851702'
+            - result
+          id: 'true'
+          logical_operator: or
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 175
+      id: '1773079981963'
+      position:
+        x: 1024
+        y: 0
+      positionAbsolute:
+        x: 1024
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(body: str):\n    try:\n        # 第一步：把那一长串文本变成\
+          \ Python 字典\n        data = json.loads(body)\n        \n        # 第二步：按照你发给我的数据结构，一层层往里找\n\
+          \        # 路径是: result -> realtime -> skycon\n        res_data = data.get('result',\
+          \ {})\n        realtime = res_data.get('realtime', {})\n        skycon =\
+          \ realtime.get('skycon', 'DATA_ERROR')\n        \n        # 第三步：输出结果\n \
+          \       return {\n            \"result\": skycon\n        }\n    except\
+          \ Exception as e:\n        return {\n            \"result\": f\"解析失败: {str(e)}\"\
+          \n        }"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1773079486210'
+          - body
+          value_type: string
+          variable: body
+      height: 51
+      id: '1773080851702'
+      position:
+        x: 683
+        y: 62
+      positionAbsolute:
+        x: 683
+        y: 62
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: false
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.1@019f9ce2046476d60e7fe584b2787c9eb3ed2875084290aea67db8196bd27d58
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: false
+        title: 发送消息
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '{{#1773161833949.text#}}'
+          subject:
+            type: mixed
+            value: 下雨了
+          to:
+            type: mixed
+            value: 1@outlook.com
+        type: tool
+      height: 51
+      id: '1773082577767'
+      position:
+        x: 2408
+        y: 74
+      positionAbsolute:
+        x: 2408
+        y: 74
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 72
+      id: '1773162967146'
+      position:
+        x: 0
+        y: 52
+      positionAbsolute:
+        x: 0
+        y: 52
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1773080851702'
+          - result
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 6738ce43-4ea2-4999-8959-78ee6ad226e4
+          role: system
+          text: '你是一个贴心的天气小秘书。根据输入的天气代码（如 RAIN 代表下雨），写一段 50 字以内的温馨提醒邮件。
+
+            拒绝机械化，要像一个元气满满的少女，用“だいすきっ！神楽坂ですよ♡”结尾（前面用中文，只是自称用可愛いの神楽坂）'
+        - id: 9b8b9496-528f-4348-9911-c756f9c48276
+          role: user
+          text: 当前天气代码是：{{{#1773080851702.result#}}}}，清根据这个写一段提醒
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1773161786629'
+      position:
+        x: 1365
+        y: 44
+      positionAbsolute:
+        x: 1365
+        y: 44
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1773161786629'
+          - text
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 911a391f-abfa-456e-ad28-7ecbf7db76dc
+          role: system
+          text: '你是一个专业的文案审核员。检查输入的文本是否存在以下问题：
+
+            语气是否生硬？
+
+            是否包含乱码或未翻译的英文代码（如 RAIN）？但保留日语
+
+            是否有逻辑错误？ 如果文本没问题，原样返回该文本。如果发现问题，请修正后返回一个完美的版本。
+
+            如果通过，请直接输出文案。不要输出任何多余内容。如果不通过就去掉里面的神楽坂'
+        - id: 7935a1eb-4414-44df-b42c-0f90a535a05a
+          role: user
+          text: 待检查文本：{{{#1773161786629.text#}}}
+        selected: false
+        title: LLM 2
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1773161833949'
+      position:
+        x: 1706
+        y: 44
+      positionAbsolute:
+        x: 1706
+        y: 44
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 2dfef346-cbf0-43c4-aba4-28b43369b948
+            value: 神楽坂
+            varType: string
+            variable_selector:
+            - '1773161833949'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 123
+      id: '1773162533349'
+      position:
+        x: 2047
+        y: 26
+      positionAbsolute:
+        x: 2047
+        y: 26
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: false
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The email address of the recipient
+            ja_JP: 宛先の電子メールアドレス
+            pt_BR: O endereço de e-mail do destinatário
+            zh_Hans: 收件人的电子邮件地址
+          label:
+            en_US: To
+            ja_JP: 宛先
+            pt_BR: Para
+            zh_Hans: 收件人
+          llm_description: The email address of the recipient
+          max: null
+          min: null
+          name: to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The subject of the message
+            ja_JP: 件名
+            pt_BR: O assunto da mensagem
+            zh_Hans: 消息的主题
+          label:
+            en_US: Subject
+            ja_JP: 件名
+            pt_BR: Assunto
+            zh_Hans: 主题
+          llm_description: The subject of the message
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The content of the message
+            ja_JP: メッセージの内容
+            pt_BR: O conteúdo da mensagem
+            zh_Hans: 消息的内容
+          label:
+            en_US: Message
+            ja_JP: メッセージ
+            pt_BR: Mensagem
+            zh_Hans: 消息
+          llm_description: The content of the message
+          max: null
+          min: null
+          name: message
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          message: ''
+          subject: ''
+          to: ''
+        plugin_id: langgenius/outlook
+        plugin_unique_identifier: langgenius/outlook:0.2.1@019f9ce2046476d60e7fe584b2787c9eb3ed2875084290aea67db8196bd27d58
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8abf66a7-b032-48dc-ba9a-6a73758c3da2&filename=26afac8c4c554272513e82c43abe8432731afc1ce646c1bf09ca8af45d85aafc.svg
+        provider_id: langgenius/outlook/outlook
+        provider_name: langgenius/outlook/outlook
+        provider_type: builtin
+        selected: true
+        title: 发送消息 (1)
+        tool_configurations: {}
+        tool_description: 通过Outlook使用Microsoft Graph API发送消息
+        tool_label: 发送消息
+        tool_name: send_message
+        tool_node_version: '2'
+        tool_parameters:
+          message:
+            type: mixed
+            value: '可愛いの神楽坂提醒您，今日记得将伞带上
+
+              だいすきっ！神楽坂ですよ♡'
+          subject:
+            type: mixed
+            value: 下雨了
+          to:
+            type: mixed
+            value: 1@outlook.com
+        type: tool
+      height: 51
+      id: '17731662054810'
+      position:
+        x: 2408
+        y: 205
+      positionAbsolute:
+        x: 2408
+        y: 205
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: -1960.2521292794409
+      y: 255.1977612366494
+      zoom: 1.0000000000000018
+  rag_pipeline_variables: []
