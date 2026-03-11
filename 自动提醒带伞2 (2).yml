@@ -165,6 +165,7 @@ workflow:
         sourceType: trigger-schedule
         targetType: http-request
       id: 1773172110016-source-1773079486210-target
+      selected: false
       source: '1773172110016'
       sourceHandle: source
       target: '1773079486210'
@@ -200,11 +201,11 @@ workflow:
       id: '1773079486210'
       position:
         x: 342
-        y: 4
+        y: 12
       positionAbsolute:
         x: 342
-        y: 4
-      selected: false
+        y: 12
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -247,7 +248,7 @@ workflow:
       positionAbsolute:
         x: 1024
         y: 0
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -283,7 +284,7 @@ workflow:
       positionAbsolute:
         x: 683
         y: 62
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -399,7 +400,7 @@ workflow:
       positionAbsolute:
         x: 2408
         y: 74
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -418,7 +419,7 @@ workflow:
             - sun
         frequency: daily
         mode: visual
-        selected: true
+        selected: false
         timezone: America/New_York
         title: 定时触发器
         type: trigger-schedule
@@ -426,17 +427,18 @@ workflow:
           monthly_days:
           - 1
           on_minute: 0
-          time: 12:07 AM
+          time: 7:00 AM
           weekdays:
           - sun
       height: 129
       id: '1773172110016'
       position:
         x: 0
-        y: 52
+        y: 23
       positionAbsolute:
         x: 0
-        y: 52
+        y: 23
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -458,7 +460,7 @@ workflow:
           role: system
           text: '你是一个贴心的天气小秘书。根据输入的天气代码（如 RAIN 代表下雨），写一段 50 字以内的温馨提醒邮件。
 
-            拒绝机械化，要像一个元气满满的少女，用“だいすきっ！神楽坂ですよ♡”结尾（前面用中文，只是自称用可愛いの神楽坂）'
+            拒绝机械化，要像一个元气满满的少女，用“だいすきっ！神楽坂ですよ♡”结尾（前面用中文不要出现任何英文，只是自称用可愛いの神楽坂）'
         - id: 9b8b9496-528f-4348-9911-c756f9c48276
           role: user
           text: 当前天气代码是：{{{#1773080851702.result#}}}}，清根据这个写一段提醒
@@ -475,7 +477,7 @@ workflow:
       positionAbsolute:
         x: 1365
         y: 44
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -499,7 +501,7 @@ workflow:
 
             语气是否生硬？
 
-            是否包含乱码或未翻译的英文代码（如 RAIN）？但保留日语
+            是否包含乱码或未翻译的英文代码（如 RAIN）？出现没翻译的翻译成中文，但保留日语
 
             是否有逻辑错误？ 如果文本没问题，原样返回该文本。如果发现问题，请修正后返回一个完美的版本。
 
@@ -520,7 +522,7 @@ workflow:
       positionAbsolute:
         x: 1706
         y: 44
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -549,7 +551,7 @@ workflow:
       positionAbsolute:
         x: 2047
         y: 26
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -667,13 +669,13 @@ workflow:
       positionAbsolute:
         x: 2408
         y: 205
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     viewport:
-      x: 139.9885970948792
-      y: 306.81881075777363
-      zoom: 0.3789291416276001
+      x: -958.2978231080281
+      y: 184.63838975969475
+      zoom: 0.609385394307287
   rag_pipeline_variables: []
