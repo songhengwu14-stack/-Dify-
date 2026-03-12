@@ -1,11 +1,7 @@
 # -Dify-
-⚠️ Warning: Heavy LLM usage. A Dify-based weather assistant using Caiyun API (Coordinates required). Supports Outlook alerts with a touch of "Kagurazaka" style. ✨
+A Dify-based weather assistant using Caiyun API (Coordinates required). Supports Outlook alerts with a touch of "Kagurazaka" style. ✨
 2. 详细配置说明 (README.md - 完整中英对照)
 你可以直接复制下面的 Markdown 内容：
-
-⚠️ Current Status & Credit Usage / 当前状态与额度消耗
-Not fully optimized yet. One run might trigger multiple LLM calls.
-尚未完全优化，单次运行可能消耗多次 LLM 调用。
 
 ⚠️ 重要提醒：
 导入 DSL 文件后，请务必进入“发送消息”(Outlook) 节点，使用您自己的账号重新点击“授权”，否则工作流将无法发送邮件。
